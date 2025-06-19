@@ -2,7 +2,8 @@ import os
 import time
 from zipfile import ZipFile, ZIP_DEFLATED
 
-# progress bar for any iterable
+# progress bar for any iterable 
+# source: https://stackoverflow.com/a/34482761
 def progressbar(it, prefix="", size=60):
     count = len(it)
     start = time.time()
@@ -44,7 +45,7 @@ def createzip(zip_path: str, paths: list, comp_level: int=1):
             else: # path is a file
                 print(f"zipping \"{path}\"")
                 zip.write(path)
-    
+
     # verify that zip was created
     assert os.path.exists(zip_path), f"{zip_path} was not created!"
     print(f"saved {zip_path}")
